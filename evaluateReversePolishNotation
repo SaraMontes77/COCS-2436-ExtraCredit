@@ -1,0 +1,37 @@
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> st;
+        for(string token : tokens){
+            if(token == "-" || token == "+" || token == "*" || token == "/"){
+                int numOne = st.top();
+                st.pop();
+                int numTwo = st.top();
+                st.pop();
+
+                int result;
+                if(token == "-"){
+                    result = numTwo - numOne;
+                }
+                else if(token == "+"){
+                    result = numTwo + numOne;
+                }
+                else if(token == "*"){
+                    result = numTwo * numOne;
+                }
+                else if(token == "/"){
+                    result = numTwo / numOne;
+                }
+                st.push(result);
+            }
+            else{
+                int number = stoi(token);
+                st.push(number);
+            }
+
+        }
+        int solution = st.top();
+        return solution;
+    }
+
+};
