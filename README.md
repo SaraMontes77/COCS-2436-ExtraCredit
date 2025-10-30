@@ -1,1 +1,5 @@
 # COCS-2436-ExtraCredit
+1. Valid Parenthesis : Easy
+2. Min Stack : Medium
+3. Evaluate Reverse Polish Notation : Medium
+   
