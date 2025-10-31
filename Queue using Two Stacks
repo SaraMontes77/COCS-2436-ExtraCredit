@@ -1,0 +1,56 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include<stack>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+class myQueue {
+    stack<int> stack_in, stack_out;
+
+    void transfer() {
+        while (!stack_in.empty()) {
+            stack_out.push(stack_in.top());
+            stack_in.pop();
+        }
+    }
+public:
+    void enqueue(int x) {
+        stack_in.push(x);
+    }
+    
+    void dequeue() {
+        if (stack_out.empty()) transfer();
+        if (!stack_out.empty()) stack_out.pop();
+    }
+
+    int front() {
+        if (stack_out.empty()) transfer();
+        return stack_out.top();
+    }
+};
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int q;
+    cin >> q;
+    myQueue queue;
+
+    while (q--) {
+        int type;
+        cin >> type;
+
+        if (type == 1) {
+            int x;
+            cin >> x;
+            queue.enqueue(x);
+        } else if (type == 2) {
+            queue.dequeue();
+        } else if (type == 3) {
+            cout << queue.front() << endl;
+        }
+    }
+       
+    return 0;
+}
