@@ -8,5 +8,6 @@ Exam 2
 6. Implement Queue Using Stacks : Easy
 
 Final Exam
-1. Print Cousins
-2. 
+1. Print Cousins Binary Tree : Medium 
+2. Binary Tree to its Mirror : Medium
+3. 
