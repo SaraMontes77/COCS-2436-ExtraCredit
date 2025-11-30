@@ -10,4 +10,5 @@ Exam 2
 Final Exam
 1. Print Cousins Binary Tree : Medium 
 2. Binary Tree to its Mirror : Medium
-3. 
+3. Check if Binary Tress is Symmetric : Medium
+4. 
