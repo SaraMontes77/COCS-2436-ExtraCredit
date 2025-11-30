@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+    Node(int val) : data(val), left(NULL), right(NULL) {}
+};
+
+bool isSibling(Node* root, Node* a, Node* b) {
+    if (!root) return false;
+    if (root->left && root->right) {
+        if ((root->left == a && root->right == b) || 
+            (root->left == b && root->right == a))
+            return true;
+    }
+    return isSibling(root->left, a, b) || isSibling(root->right, a, b);
+}
+
+int getLevel(Node* root, Node* target, int level) {
+    if (!root) return 0;
+    if (root == target) return level;
+
+    int downlevel = getLevel(root->left, target, level + 1);
+    if (downlevel != 0) return downlevel;
+
+    return getLevel(root->right, target, level + 1);
+}
+
+// Print nodes at given level (excluding siblings of target)
+void printGivenLevel(Node* root, Node* target, int level) {
+    if (!root || level < 2) return;
+
+    if (level == 2) {
+        if (root->left && root->left != target && !isSibling(root, root->left, target))
+            cout << root->left->data << " ";
+        if (root->right && root->right != target && !isSibling(root, root->right, target))
+            cout << root->right->data << " ";
+    }
+    else if (level > 2) {
+        printGivenLevel(root->left, target, level - 1);
+        printGivenLevel(root->right, target, level - 1);
+    }
+}
+
+void printCousins(Node* root, Node* target) {
+    int level = getLevel(root, target, 1);
+    printGivenLevel(root, target, level);
+}
+
+int main() {
+    Node* root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->right = new Node(6);
+    root->right->right->left = new Node(7);
+    root->right->right->right = new Node(8);
+
+    cout << "Cousins of node 4: ";
+    printCousins(root, root->left->left);  
+    cout << endl;
+
+    cout << "Cousins of node 6: ";
+    printCousins(root, root->right->right);  
+    cout << endl;
+
+    return 0;
+}
