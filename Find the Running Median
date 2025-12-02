@@ -1,0 +1,33 @@
+vector<double> runningMedian(vector<int>& a) {
+    priority_queue<int> maxHeap; // smaller half
+    priority_queue<int, vector<int>, greater<int>> minHeap; // larger half
+    vector<double> ans;
+
+    for (int num : a) {
+        maxHeap.push(num);
+
+        int temp = maxHeap.top();
+        maxHeap.pop();
+        minHeap.push(temp);
+
+        // Balance heaps sizes
+        if (minHeap.size() > maxHeap.size()) {
+            temp = minHeap.top();
+            minHeap.pop();
+            maxHeap.push(temp);
+        }
+
+        double median;
+        if (maxHeap.size() != minHeap.size()) {
+            median = maxHeap.top();
+        } else {
+            median = (maxHeap.top() + minHeap.top()) / 2.0;
+        }
+
+        median = round(median * 10.0) / 10.0;
+
+        ans.push_back(median);
+    }
+
+    return ans;
+}
