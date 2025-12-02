@@ -15,4 +15,6 @@ Final Exam
 5. Tree: Preorder Traversal : Easy
 6. Tree: Postorder Traversal : Easy
 7. Diameter of Binary Tree : Medium
-8. Find the Running Medium : Hard 
+8. Find the Running Medium : Hard
+9. World Ladder : Hard
+10. Subsets : Medium 
