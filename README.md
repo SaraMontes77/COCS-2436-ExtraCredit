@@ -11,4 +11,7 @@ Final Exam
 1. Print Cousins Binary Tree : Medium 
 2. Binary Tree to its Mirror : Medium
 3. Check if Binary Tress is Symmetric : Medium
-4. 
+4. Symmetric Tree : Easy
+5. Tree: Preorder Traversal : Easy
+6. Tree: Postorder Traversal : Easy
+7. 
