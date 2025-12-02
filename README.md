@@ -14,4 +14,5 @@ Final Exam
 4. Symmetric Tree : Easy
 5. Tree: Preorder Traversal : Easy
 6. Tree: Postorder Traversal : Easy
-7. 
+7. Diameter of Binary Tree : Medium
+8. Find the Running Medium : Hard 
